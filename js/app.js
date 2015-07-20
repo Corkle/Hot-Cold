@@ -61,7 +61,11 @@ function Game() {
     this.gameOver = false;
     var myNum = 1 + Math.floor(Math.random() * 100);
     var userGuesses = [];
+    this.getUserGuesses = function () {
+        return userGuesses;
+    }
     this.feedback = "Make your Guess!";
+    
     this.guessNum = function (userGuess) {
         var newNumDif = Math.abs(myNum - userGuess);
         if (newNumDif === 0) { //Game Over
@@ -93,9 +97,6 @@ function Game() {
         }
         userGuesses.unshift(userGuess);
     }
-    this.getUserGuesses = function () {
-        return userGuesses;
-    }
 }
 
 function updateForm(game) {
@@ -107,12 +108,6 @@ function updateForm(game) {
         $('#guessList').prepend('<li><span>' + guesses[0] + '<span></li>');
     }
     $('#guessList li').first().css('background-color', colorArray[game.feedback]);
-
-    //    if (game.feedback === 'Warmer!') {
-    //        $('#guessList li').first().addClass('warmer');
-    //    } else if (game.feedback === 'Colder!') {
-    //        $('#guessList li').first().addClass('colder');
-    //    }
     $('#feedback').text(game.feedback);
 }
 
