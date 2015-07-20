@@ -49,7 +49,7 @@ $(document).ready(function () {
         $('#userGuess').val('');
         updateForm(currentGame);
     }
-    
+
     function GameOver() {
         $('#userGuess').prop('disabled', true);
         $('#guessButton').prop('disabled', true);
@@ -65,7 +65,7 @@ function Game() {
     this.guessNum = function (userGuess) {
         var newNumDif = Math.abs(myNum - userGuess);
         if (newNumDif === 0) { //Game Over
-            this.feedback = 'You guessed my number in ' + (userGuesses.length+1) + ' guesses!';
+            this.feedback = 'You guessed my number in ' + (userGuesses.length + 1) + ' guesses!';
             this.gameOver = true;
         } else {
             if (userGuesses.length === 0) {
@@ -93,14 +93,9 @@ function Game() {
         }
         userGuesses.unshift(userGuess);
     }
-    this.getMyNum = function () {
-        return myNum;
-    }
     this.getUserGuesses = function () {
         return userGuesses;
     }
-
-    DEBUG(this.getMyNum());
 }
 
 function updateForm(game) {
@@ -112,13 +107,13 @@ function updateForm(game) {
         $('#guessList').prepend('<li><span>' + guesses[0] + '<span></li>');
     }
     $('#guessList li').first().css('background-color', colorArray[game.feedback]);
-    
-//    if (game.feedback === 'Warmer!') {
-//        $('#guessList li').first().addClass('warmer');
-//    } else if (game.feedback === 'Colder!') {
-//        $('#guessList li').first().addClass('colder');
-//    }
-    $('#feedback').text(game.feedback);        
+
+    //    if (game.feedback === 'Warmer!') {
+    //        $('#guessList li').first().addClass('warmer');
+    //    } else if (game.feedback === 'Colder!') {
+    //        $('#guessList li').first().addClass('colder');
+    //    }
+    $('#feedback').text(game.feedback);
 }
 
 var colorArray = new Array();
