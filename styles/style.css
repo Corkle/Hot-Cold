@@ -297,25 +297,53 @@ input:focus {
 }
 
 ul.guessBox {
-	height: 80px;
+	min-height: 80px;
+    max-height: 110px;
 	margin: 10px auto 0;
 	background: #11a8ab;
 	padding: 0.5em;
-	display: block;
+	display: flex;
 	line-height: 2em;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 	color: #fff;
-	overflow: auto;
+	overflow-y: hidden;
+    text-align: left;
+    flex-wrap: wrap;
 }
 ul.guessBox li {
-	display: inline;
-	background-color: #1a4e95;
+	display: flex;
+    flex-direction: row;
+	background-color: #098830;
 	padding: 0.3em;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	width: 95%;
+	height: 27px;
+    min-width: 28px;
 	margin: 0.2em;
 	color: #fff;
+}
+
+ul.guessBox li span {
+    text-align: center;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+ul.guessBox li.warmer {
+    background-color: #f4503b;
+}
+
+ul.guessBox li.colder {
+    background-color: #1a4e95;
+}
+
+input.button:disabled {
+    cursor: default;
+    background-color: darkgrey;
+    color: lightgrey;
 }
